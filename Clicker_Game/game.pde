@@ -7,7 +7,6 @@ void game(){
   fill(255);
   stroke(0);
   strokeWeight(5);
-  tactile();
   circle(x,y,d);
 
   x = x + vx;
@@ -22,22 +21,21 @@ void game(){
   } 
 }
 
-void tactile(){
-  if(dist(mouseX,mouseY,x,y) < d/2){
-    stroke(255);
-  }else{
-    stroke(0);
-  }
-}
 
 void gameClicks(){
   if( dist(mouseX,mouseY,x,y) < d/2){
     score = score+1;
+    start.rewind();
+    start.play();
   }else{
     lives = lives-1;
   }
   
   if (lives < 1){
     mode = GAMEOVER;
+    gameover.rewind();
+    gameover.play();
+    theme.pause();
+    theme.rewind();
   }
 }

@@ -1,6 +1,8 @@
 void intro(){
+  theme.play();
   background(0,255,0);
-  
+  lives = 3;
+  score = 0;
   noFill();
   rect(400,600,200,100);
   stroke(0);
