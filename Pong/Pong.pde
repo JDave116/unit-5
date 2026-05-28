@@ -10,10 +10,11 @@ float leftx, lefty, leftd, rightx, righty, rightd;
 float ballx, bally, balld;
 
 
+boolean wkey, skey, upkey, downkey;
 
 void setup() {
   size(800, 600);
-  mode = INTRO;
+  mode = GAME;
   
   
   leftx = 0;
@@ -27,6 +28,9 @@ void setup() {
   ballx = width/2;
   bally = height/2;
   balld = 100;
+  
+  
+  wkey = skey = upkey = downkey = false;
 }
 
 void draw() {
