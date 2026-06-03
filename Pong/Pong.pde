@@ -8,7 +8,7 @@ final int GAMEOVER = 4;
 
 float leftx, lefty, leftd, rightx, righty, rightd;
 float ballx, bally, balld;
-
+float vx, vy;
 
 boolean wkey, skey, upkey, downkey;
 
@@ -24,6 +24,9 @@ void setup() {
   rightx = width;
   righty = height/2;
   rightd = 200;
+  
+  vx = 5;
+  vy = 5;
   
   ballx = width/2;
   bally = height/2;

@@ -10,7 +10,14 @@ void game(){
   if(skey == true) lefty = lefty +5;
   if(upkey == true) righty = righty -5;
   if(downkey == true) righty = righty +5;
+  
+  
   circle(ballx, bally, balld);
+  
+  ballx = ballx + vx;
+  bally = bally + vy;
+  
+  
 }
 
 void gameClicks(){
