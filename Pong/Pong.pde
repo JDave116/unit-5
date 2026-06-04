@@ -1,4 +1,4 @@
-//pong//
+ //pong//
 int mode;
 final int INTRO = 1;
 final int GAME = 2;
@@ -9,6 +9,8 @@ final int GAMEOVER = 4;
 float leftx, lefty, leftd, rightx, righty, rightd;
 float ballx, bally, balld;
 float vx, vy;
+
+int rightscore, leftscore;
 
 boolean wkey, skey, upkey, downkey;
 
@@ -25,12 +27,15 @@ void setup() {
   righty = height/2;
   rightd = 200;
   
-  vx = 5;
-  vy = 5;
+  vx = random(-4,4);
+  vy = random(-4,4);
   
   ballx = width/2;
   bally = height/2;
   balld = 100;
+  
+  rightscore=0;
+  leftscore=0;
   
   
   wkey = skey = upkey = downkey = false;
@@ -47,5 +52,12 @@ void draw() {
     gameover();
   } else {
     println("MODE ERROR" + mode);
+  }
+}
+
+void reset(){
+  if(ballx < 0 || ballx > width){
+    bally = height/2;
+    ballx = width/2;
   }
 }
