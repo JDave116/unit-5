@@ -11,6 +11,8 @@ float ballx, bally, balld;
 float vx, vy;
 
 int rightscore, leftscore;
+int timer;
+
 
 boolean wkey, skey, upkey, downkey;
 
@@ -37,6 +39,7 @@ void setup() {
   rightscore=0;
   leftscore=0;
   
+  timer = 50;
   
   wkey = skey = upkey = downkey = false;
 }

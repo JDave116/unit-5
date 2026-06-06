@@ -14,9 +14,12 @@ void game() {
 
   circle(ballx, bally, balld);
   reset();
-  
-  ballx = ballx + vx;
-  bally = bally + vy;
+
+  if (timer<0) {
+    ballx = ballx + vx;
+    bally = bally + vy;
+  }
+
 
   if (dist(leftx, lefty, ballx, bally) <= leftd/2 + balld/2) {
     vx = (ballx - leftx)/20;
@@ -35,13 +38,34 @@ void game() {
   if (bally + balld/2 >= height) {
     vy *= -1;
   }
-  
-  if(ballx <= 0){
+
+
+
+  strokeWeight(5);
+  stroke(255);
+  line(width/2, 0, width/2, height);
+
+
+
+  textSize(50);
+  fill(253, 162, 255);
+  text(leftscore, width/4, 100);
+  text(rightscore, 3*width/4, 100);
+  text(timer, 3*width/4, 600);
+  timer = timer-1;
+
+  if (ballx <= 0) {
     rightscore++;
-  }else if(ballx >= width){
-      leftscore++;
+    timer = 50;
+  } else if (ballx >= width) {
+    leftscore++;
+    timer = 50;
   }
-  
+
+
+  if (rightscore > 10 || leftscore > 10) {
+    mode = GAMEOVER;
+  }
 }
 
 
