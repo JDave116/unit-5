@@ -4,6 +4,17 @@ final int GAME = 2;
 final int PAUSE = 3;
 final int GAMEOVER = 4;
 
+color redBrown = #562C29;
+color darkPink = #AB5852;
+color tan = #CB9979;
+color sand = #EADAA0;
+color yellow = #D69E49;
+color militaryGreen = #838469;
+color cobalt = #657268;
+color navy = #476066;
+color white = #FFFFFF;
+color black = #000000;
+
 
 float paddleX, paddleY, paddleD;
 float ballX, ballY, ballD;
@@ -17,66 +28,62 @@ boolean akey, dkey;
 int[] x;
 int[] y;
 int n;
+int tempx, tempy;
 
-void setup(){
-  size(800,600);
+
+
+void setup() {
+  size(800, 600);
   mode = GAME;
-  
-  
+
+
   paddleX = width/2;
   paddleY = 600;
   paddleD = 80;
-  
-  vx = random(-4,4);
-  vy = random(-4,4);
-  
+
+  vx = random(-4, 4);
+  vy = random(-4, 4);
+
   ballX = width/2;
   ballY = height/2;
   ballD = 20;
-  
+
   score = 0;
-  
+
   akey = dkey = false;
-  
-  
+
+
   //bricks//
-  n = 6;
+  n = 28;
   x = new int[n];
   y = new int[n];
-  
-  
-  x[0] = 100;
-  y[0] = 100;
-  
-  x[1] = 400;
-  y[1] = 100;
-  
-  x[2] = 700;
-  y[2] = 100;
-  
-  x[3] = 100;
-  y[3] = 200;
-  
-  x[4] = 400;
-  y[4] = 200;
-  
-  x[5] = 700;
-  y[5] = 200;
-  
-  
+  tempx = 100;
+  tempy = 100;
+
+
+  int i = 0;
+  while (i<n) {
+    x[i] = tempx;
+    y[i] = tempy;
+    tempx = tempx +100;
+    if (tempx == width) {
+      tempx = 100;
+      tempy = tempy + 100;
+    }
+    i = i+1;
+  }
 }
 
 void draw() {
-  if (mode == INTRO){
+  if (mode == INTRO) {
     intro();
-  }else if (mode == GAME){
+  } else if (mode == GAME) {
     game();
-  }else if (mode == PAUSE){
+  } else if (mode == PAUSE) {
     pause();
-  }else if (mode == GAMEOVER){
+  } else if (mode == GAMEOVER) {
     gameover();
-  }else {
+  } else {
     println ("MODE ERROR" + mode);
   }
 }
-  

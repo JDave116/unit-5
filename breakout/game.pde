@@ -1,7 +1,7 @@
 void game(){
   
-  background(0);
-  
+  background(black);
+  fill(white);
   circle(paddleX, paddleY, paddleD);
   circle(ballX, ballY, ballD);
   
@@ -36,19 +36,24 @@ void game(){
   //bricks//
   int i = 0;
  while(i<n){
-   circle(x[i], y[i], 50);  
-   if (dist(x[i], y[i], ballX, ballY) <= 50/2 + ballD/2){
-    vx = (ballX - x[i])/10;
-    vy = (ballY - y[i])/10;
-  }
+   manageBrick(i);
    i = i+1;
  }
- 
- 
- 
  
 }
 
 void gameclicks(){
   
+}
+
+void manageBrick(int i){
+  if(y[i] == 100) fill(yellow);
+   if(y[i] == 200) fill(sand);
+   if(y[i] == 300) fill(tan);
+   if(y[i] == 400) fill(darkPink);
+   circle(x[i], y[i], 50);  
+   if (dist(x[i], y[i], ballX, ballY) <= 50/2 + ballD/2){
+    vx = (ballX - x[i])/10;
+    vy = (ballY - y[i])/10;
+   }
 }
