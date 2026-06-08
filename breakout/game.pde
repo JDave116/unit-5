@@ -13,8 +13,8 @@ void game(){
   ballY = ballY + vy;
   
   if (dist(paddleX, paddleY, ballX, ballY) <= paddleD/2 + ballD/2){
-    vx = (ballX - paddleX)/20;
-    vy = (ballY - paddleY)/20;
+    vx = (ballX - paddleX)/10;
+    vy = (ballY - paddleY)/10;
   }
   
   if (ballY - ballD/2 <=0){
@@ -32,6 +32,21 @@ void game(){
   if(ballX + ballD/2 >= width){
     vx *= -1;
   }
+  
+  //bricks//
+  int i = 0;
+ while(i<n){
+   circle(x[i], y[i], 50);  
+   if (dist(x[i], y[i], ballX, ballY) <= 50/2 + ballD/2){
+    vx = (ballX - x[i])/10;
+    vy = (ballY - y[i])/10;
+  }
+   i = i+1;
+ }
+ 
+ 
+ 
+ 
 }
 
 void gameclicks(){
