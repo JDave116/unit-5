@@ -1,4 +1,5 @@
-int mode;
+
+;int mode;
 final int INTRO = 1;
 final int GAME = 2;
 final int PAUSE = 3;
@@ -19,7 +20,9 @@ color black = #000000;
 float paddleX, paddleY, paddleD;
 float ballX, ballY, ballD;
 
-float score;
+int score;
+int win;
+int lives;
 float vx, vy;
 
 boolean akey, dkey;
@@ -27,6 +30,7 @@ boolean akey, dkey;
 //bricks//
 int[] x;
 int[] y;
+boolean[] alive;
 int n;
 int tempx, tempy;
 
@@ -49,6 +53,8 @@ void setup() {
   ballD = 20;
 
   score = 0;
+  win = 0;
+  lives = 3;
 
   akey = dkey = false;
 
@@ -57,6 +63,7 @@ void setup() {
   n = 28;
   x = new int[n];
   y = new int[n];
+  alive = new boolean[n];
   tempx = 100;
   tempy = 100;
 
@@ -65,6 +72,7 @@ void setup() {
   while (i<n) {
     x[i] = tempx;
     y[i] = tempy;
+    alive[i] = true;
     tempx = tempx +100;
     if (tempx == width) {
       tempx = 100;
