@@ -1,6 +1,11 @@
 void game() {
-
-  background(black);
+  lives = 3;
+  score = 0;
+  image(gif[f],0,0,width,height);
+  println(frameCount);
+  if(frameCount % 2 == 0) f = f+1;
+  if (f == NOF) f = 0;
+  
   fill(white);
   circle(paddleX, paddleY, paddleD);
   circle(ballX, ballY, ballD);
@@ -55,7 +60,7 @@ void game() {
     mode = GAMEOVER;
     win = 1;
   }
-  if(lives == 1){
+  if(lives == 0){
     mode = GAMEOVER;
     win = 2;
   }

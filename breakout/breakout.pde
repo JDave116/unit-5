@@ -35,18 +35,22 @@ int n;
 int tempx, tempy;
 
 
+PImage[] gif;
+int NOF;
+int f;
+
 
 void setup() {
   size(800, 600);
-  mode = GAME;
-
+  mode = INTRO;
+  noStroke();
 
   paddleX = width/2;
   paddleY = 600;
   paddleD = 80;
 
-  vx = random(-4, 4);
-  vy = random(-4, 4);
+  vx = random(-8, 8);
+  vy = random(-8, 8);
 
   ballX = width/2;
   ballY = height/2;
@@ -66,6 +70,15 @@ void setup() {
   alive = new boolean[n];
   tempx = 100;
   tempy = 100;
+  
+  NOF = 9;
+  gif = new PImage[NOF];
+  
+  int t = 0;
+  while(t<NOF){
+    gif[t] = loadImage("frame_"+t+"_delay-0.1s.gif");
+    t= t+1;
+  }
 
 
   int i = 0;
