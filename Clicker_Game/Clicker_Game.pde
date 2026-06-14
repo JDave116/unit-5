@@ -15,11 +15,12 @@ final int INTRO = 0;
 final int GAME = 1;
 final int PAUSE = 2;
 final int GAMEOVER = 3;
+final int OPTIONS = 4;
 
 float x,y,d;
 float vx, vy;
 int score, lives;
-
+int highscore;
 
 //sound//
 Minim minim;
@@ -47,6 +48,8 @@ void setup() {
   theme = minim.loadFile("MUSIC.mp3");
   start = minim.loadFile("SUCCESS.wav");
   gameover = minim.loadFile("FAILURE.wav");
+  
+  highscore = 0;
 }
 
 void draw() {
@@ -58,7 +61,9 @@ void draw() {
     pause();
   } else if (mode == GAMEOVER) {
     gameover();
-  } else {
+  } else if (mode == OPTIONS){
+    OPTIONS();
+  }else{
     println("ERROR: MODE = " + mode);
   }
 }

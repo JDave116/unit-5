@@ -8,7 +8,15 @@ void game(){
   stroke(0);
   strokeWeight(5);
   circle(x,y,d);
-
+  
+  //PAUSE//
+  fill(255);
+  circle(100,100,80);
+  textSize(20);
+  fill(0);
+  text("PAUSE", 100,100);
+  
+  
   x = x + vx;
   y = y + vy;
   
@@ -27,6 +35,8 @@ void gameClicks(){
     score = score+1;
     start.rewind();
     start.play();
+  }else if(dist(mouseX,mouseY,100,100)<40){
+    mode = PAUSE;
   }else{
     lives = lives-1;
   }
@@ -38,4 +48,6 @@ void gameClicks(){
     theme.pause();
     theme.rewind();
   }
+  
+  
 }

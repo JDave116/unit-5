@@ -15,19 +15,22 @@ int timer;
 
 
 boolean wkey, skey, upkey, downkey;
+boolean AI;
+
+int maxUp, maxDown;
 
 void setup() {
   size(800, 600);
-  mode = GAME;
+  mode = INTRO;
   
   
   leftx = 0;
   lefty = height/2;
-  leftd = 200;
+  leftd = 100;
   
   rightx = width;
   righty = height/2;
-  rightd = 200;
+  rightd = 100;
   
   vx = random(-4,4);
   vy = random(-4,4);
@@ -36,12 +39,17 @@ void setup() {
   bally = height/2;
   balld = 100;
   
+  maxUp = 50;
+  maxDown = 550;
+  
   rightscore=0;
   leftscore=0;
   
   timer = 50;
   
   wkey = skey = upkey = downkey = false;
+  
+  AI = false;
 }
 
 void draw() {

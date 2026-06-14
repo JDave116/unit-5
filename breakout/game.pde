@@ -39,6 +39,14 @@ void game() {
   if (ballX + ballD/2 >= width) {
     vx *= -1;
   }
+  
+  if(paddleX -paddleD/2 >= width){
+    paddleX = 800;
+  }
+  
+  if(paddleX - paddleD/2 <= width-800){
+    paddleX = 0;
+  }
 
   //bricks//
   int i = 0;

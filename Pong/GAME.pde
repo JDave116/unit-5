@@ -6,11 +6,23 @@ void game() {
   circle(rightx, righty, rightd);
 
 
-  if (wkey == true) lefty = lefty -5;
-  if (skey == true) lefty = lefty +5;
-  if (upkey == true) righty = righty -5;
-  if (downkey == true) righty = righty +5;
+  if ((wkey == true)&&(lefty > maxUp)) lefty = lefty -5;
+  if ((skey == true) && (lefty < maxDown)) lefty = lefty +5;
 
+  if ( AI == false) {
+    if ((upkey == true)&& (righty > maxUp)) righty = righty -5;
+    if ((downkey == true)&& (righty < maxDown)) righty = righty +5;
+  }else{
+    if ((bally > righty) && (ballx > 400)){
+      righty +=2;
+    }else if ((bally < righty) && (ballx > 400)){
+      righty -=2;
+    }
+  }
+ 
+  //if(AI == true){
+  //  righty = bally;
+  //}
 
   circle(ballx, bally, balld);
   reset();
@@ -63,7 +75,7 @@ void game() {
   }
 
 
-  if (rightscore > 10 || leftscore > 10) {
+  if (rightscore > 2 || leftscore > 2) {
     mode = GAMEOVER;
   }
 }
