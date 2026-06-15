@@ -1,3 +1,10 @@
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+
 
 ;int mode;
 final int INTRO = 1;
@@ -38,6 +45,8 @@ int tempx, tempy;
 PImage[] gif;
 int NOF;
 int f;
+int maxleft;
+int maxright;
 
 
 void setup() {
@@ -53,7 +62,7 @@ void setup() {
   vy = random(-8, 8);
 
   ballX = width/2;
-  ballY = height/2;
+  ballY = (height/2)+120;
   ballD = 20;
 
   score = 0;
@@ -62,7 +71,8 @@ void setup() {
 
   akey = dkey = false;
 
-
+  maxleft = 40;
+  maxright = 760;
   //bricks//
   n = 28;
   x = new int[n];

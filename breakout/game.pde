@@ -1,21 +1,22 @@
 void game() {
-  lives = 3;
-  score = 0;
-  image(gif[f],0,0,width,height);
+
+  image(gif[f], 0, 0, width, height);
   println(frameCount);
-  if(frameCount % 2 == 0) f = f+1;
+  if (frameCount % 2 == 0) f = f+1;
   if (f == NOF) f = 0;
-  
+
   fill(white);
   circle(paddleX, paddleY, paddleD);
   circle(ballX, ballY, ballD);
 
 
-  if (akey == true ) paddleX = paddleX - 5;
-  if (dkey == true ) paddleX = paddleX + 5;
+  if ((akey == true ) && (paddleX > maxleft)) paddleX = paddleX - 5;
+  if ((dkey == true ) && (paddleX < maxright)) paddleX = paddleX + 5;
 
   ballX = ballX + vx;
   ballY = ballY + vy;
+
+
 
   if (dist(paddleX, paddleY, ballX, ballY) <= paddleD/2 + ballD/2) {
     vx = (ballX - paddleX)/10;
@@ -26,10 +27,9 @@ void game() {
     vy *= -1;
   }
 
-  if (ballY + ballD/2 >= height){
-    lives = lives - 1; 
+  if (ballY + ballD/2 >= height) {
+    lives = lives - 1;
     resetball();
-    
   }
 
   if (ballX - ballD/2 <= 0) {
@@ -39,14 +39,7 @@ void game() {
   if (ballX + ballD/2 >= width) {
     vx *= -1;
   }
-  
-  if(paddleX -paddleD/2 >= width){
-    paddleX = 800;
-  }
-  
-  if(paddleX - paddleD/2 <= width-800){
-    paddleX = 0;
-  }
+
 
   //bricks//
   int i = 0;
@@ -56,19 +49,19 @@ void game() {
     }
     i = i+1;
   }
-  
-  textAlign(CENTER,CENTER);
+
+  textAlign(CENTER, CENTER);
   fill(white);
   textSize(50);
-  text("SCORE:" + score , 100,40);
-  
-  text("LIVES:" + lives , 700,40);
-  
-  if(score == 28){
+  text("SCORE:" + score, 100, 40);
+
+  text("LIVES:" + lives, 700, 40);
+
+  if (score == 28) {
     mode = GAMEOVER;
     win = 1;
   }
-  if(lives == 0){
+  if (lives == 0) {
     mode = GAMEOVER;
     win = 2;
   }
@@ -91,9 +84,9 @@ void manageBrick(int i) {
   }
 }
 
-void resetball(){
+void resetball() {
   ballX = 400;
-  ballY = 300;
+  ballY = 420;
   ballD = 20;
   circle(ballX, ballY, ballD);
 }

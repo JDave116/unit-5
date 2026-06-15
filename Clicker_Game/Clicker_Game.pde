@@ -21,6 +21,16 @@ float x,y,d;
 float vx, vy;
 int score, lives;
 int highscore;
+float x2,y2;
+
+color ballfill;
+
+int sliderY;
+
+PImage a;
+PImage b;
+PImage c;
+int choice;
 
 //sound//
 Minim minim;
@@ -37,12 +47,16 @@ void setup() {
   
   x = width/2;
   y = height/2;
-  d = 500;
+  x2 = 30;
+  y2 = 30;
+  d = 60;
   vx = random(-10,10);
   vy = random(-10,10);
-  
+  sliderY = 700;
+  choice = 1;
   score = 0;
   lives = 3;
+  
   
   minim = new Minim(this);
   theme = minim.loadFile("MUSIC.mp3");
@@ -50,6 +64,10 @@ void setup() {
   gameover = minim.loadFile("FAILURE.wav");
   
   highscore = 0;
+  
+ a = loadImage("a.png");
+ b = loadImage("b.png");
+ c = loadImage("c.png");
 }
 
 void draw() {
@@ -65,5 +83,13 @@ void draw() {
     OPTIONS();
   }else{
     println("ERROR: MODE = " + mode);
+  }
+}
+
+void tactile(int x, int y, int x2, int y2){
+  if(mouseX > x && mouseX < x2 && mouseY > y && mouseY < y2){
+    stroke(255);
+  }else{
+    stroke(0);
   }
 }

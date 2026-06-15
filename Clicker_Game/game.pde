@@ -5,9 +5,7 @@ void game(){
   text("Score: " + score, width/2, 50);
   text("Lives: " + lives, width/2, 100);
   fill(255);
-  stroke(0);
-  strokeWeight(5);
-  circle(x,y,d);
+  ball();
   
   //PAUSE//
   fill(255);
