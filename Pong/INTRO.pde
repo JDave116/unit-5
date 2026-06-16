@@ -1,4 +1,7 @@
 void intro(){
+  rightscore = 0;
+  leftscore = 0;
+  theme.play();
   background(255);
   textAlign(CENTER,CENTER);
   textSize(80);

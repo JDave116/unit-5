@@ -1,5 +1,5 @@
 void game(){
-  background(0,255,0);
+  background(247,155,155);
   textSize(40);
   fill(0);
   text("Score: " + score, width/2, 50);

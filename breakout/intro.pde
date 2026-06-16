@@ -1,4 +1,7 @@
 void intro(){
+  score = 0;
+  lives = 3;
+  theme.play();
   image(gif[f],0,0,width,height);
   println(frameCount);
   if(frameCount % 2 == 0) f = f+1;

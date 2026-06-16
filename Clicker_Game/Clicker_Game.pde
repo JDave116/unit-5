@@ -88,7 +88,7 @@ void draw() {
 
 void tactile(int x, int y, int x2, int y2){
   if(mouseX > x && mouseX < x2 && mouseY > y && mouseY < y2){
-    stroke(255);
+    stroke(0,255,0);
   }else{
     stroke(0);
   }

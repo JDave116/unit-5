@@ -1,4 +1,5 @@
 void gameover(){
+  theme.pause();
   textAlign(CENTER,CENTER);
   textSize(150);
   if(win == 1){
@@ -10,6 +11,8 @@ void gameover(){
     background(255,0,0);
     fill(0);
     text("YOU LOSE", 400,300);
+    gameover.rewind();
+    gameover.play();
   }
 }
 

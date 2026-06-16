@@ -1,8 +1,10 @@
 void OPTIONS(){
   background(222,81,81);
+  slider(); 
   fill(255);
   stroke(0);
   strokeWeight(4);
+  tactile(40,60,160,140);
   rect(100,100,120,80);
   textSize(30);
   fill(255,0,0);
@@ -11,18 +13,19 @@ void OPTIONS(){
   imageMode(CENTER);
   
   fill(255);
-  tactile(25,275,175,375);
-  //tactile(400
+  tactile(25,225,175,375);
   rect(100,300,150,150);
   image(a,100,300,100,100);
+  tactile(325,225,475,375);
   rect(400,300,150,150);
   image(b,400,300,100,100);
+  tactile(625,225,775,375);
   rect(700,300,150,150);
   image(c,700,300,110,100);
+  stroke(0);
   
   
-  
-  slider();
+ 
   
   if(choice == 1){
    image(a,600,600,200,200); 
@@ -63,6 +66,9 @@ void controlSlider() {
 void slider(){
   line(100,500,100,700);
   circle(100, sliderY, d);
+  fill(255,0,0); 
+  textSize(d/4);
+  text("SIZE",100,sliderY);
 }
 
 void ball(){  

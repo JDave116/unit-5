@@ -1,5 +1,5 @@
-void mouseReleased(){
- if (mode == INTRO) {
+void mouseReleased() {
+  if (mode == INTRO) {
     introClicks();
   } else if (mode == GAME) {
     gameClicks();
@@ -7,15 +7,13 @@ void mouseReleased(){
     pauseClicks();
   } else if (mode == GAMEOVER) {
     gameoverClicks();
-  } else if (mode == OPTIONS){
+  } else if (mode == OPTIONS) {
     optionclicks();
   }
-  
-  
-
-  
 }
 
-void mouseDragged(){
-  controlSlider();
+void mouseDragged() {
+  if (mode == OPTIONS) {
+    controlSlider();
+  }
 }

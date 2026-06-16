@@ -12,14 +12,14 @@ void game() {
   if ( AI == false) {
     if ((upkey == true)&& (righty > maxUp)) righty = righty -5;
     if ((downkey == true)&& (righty < maxDown)) righty = righty +5;
-  }else{
-    if ((bally > righty) && (ballx > 400)){
+  } else {
+    if ((bally > righty) && (ballx > 400)) {
       righty +=2;
-    }else if ((bally < righty) && (ballx > 400)){
+    } else if ((bally < righty) && (ballx > 400)) {
       righty -=2;
     }
   }
- 
+
   //if(AI == true){
   //  righty = bally;
   //}
@@ -36,11 +36,15 @@ void game() {
   if (dist(leftx, lefty, ballx, bally) <= leftd/2 + balld/2) {
     vx = (ballx - leftx)/20;
     vy = (bally - lefty)/20;
+    start.rewind();
+    start.play();
   }
 
   if (dist(rightx, righty, ballx, bally) <= rightd/2 + balld/2) {
     vx = (ballx - rightx)/20;
     vy = (bally - righty)/20;
+    start.rewind();
+    start.play();
   }
 
   if (bally - balld/2 <= 0) {
@@ -59,11 +63,10 @@ void game() {
 
 
 
-  textSize(50);
   fill(253, 162, 255);
   text(leftscore, width/4, 100);
   text(rightscore, 3*width/4, 100);
-  text(timer, 3*width/4, 600);
+ 
   timer = timer-1;
 
   if (ballx <= 0) {
@@ -78,10 +81,18 @@ void game() {
   if (rightscore > 2 || leftscore > 2) {
     mode = GAMEOVER;
   }
+  fill(255);
+  circle(100, 100, 80);
+  textSize(20);
+  fill(0);
+  text("PAUSE", 100, 100);
 }
 
 
 
 
 void gameClicks() {
+  if (dist(mouseX, mouseY, 100, 100)<40) {
+    mode = PAUSE;
+  }
 }

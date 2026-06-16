@@ -6,7 +6,8 @@ import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 
 
-;int mode;
+;
+int mode;
 final int INTRO = 1;
 final int GAME = 2;
 final int PAUSE = 3;
@@ -48,6 +49,8 @@ int f;
 int maxleft;
 int maxright;
 
+Minim minim;
+AudioPlayer theme, start, gameover;
 
 void setup() {
   size(800, 600);
@@ -80,12 +83,12 @@ void setup() {
   alive = new boolean[n];
   tempx = 100;
   tempy = 100;
-  
+
   NOF = 9;
   gif = new PImage[NOF];
-  
+
   int t = 0;
-  while(t<NOF){
+  while (t<NOF) {
     gif[t] = loadImage("frame_"+t+"_delay-0.1s.gif");
     t= t+1;
   }
@@ -103,6 +106,11 @@ void setup() {
     }
     i = i+1;
   }
+
+  minim = new Minim(this);
+  theme = minim.loadFile("MUSIC.mp3");
+  start = minim.loadFile("SUCCESS.wav");
+  gameover = minim.loadFile("FAILURE.wav");
 }
 
 void draw() {
@@ -116,5 +124,12 @@ void draw() {
     gameover();
   } else {
     println ("MODE ERROR" + mode);
+  }
+}
+void tactile(int x, int y, int x2, int y2){
+  if(mouseX > x && mouseX < x2 && mouseY > y && mouseY < y2){
+    stroke(0,255,0);
+  }else{
+    stroke(0);
   }
 }

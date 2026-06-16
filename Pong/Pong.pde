@@ -1,3 +1,10 @@
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+
  //pong//
 int mode;
 final int INTRO = 1;
@@ -18,6 +25,10 @@ boolean wkey, skey, upkey, downkey;
 boolean AI;
 
 int maxUp, maxDown;
+
+
+Minim minim;
+AudioPlayer theme,start, gameover;
 
 void setup() {
   size(800, 600);
@@ -50,6 +61,11 @@ void setup() {
   wkey = skey = upkey = downkey = false;
   
   AI = false;
+  
+  minim = new Minim(this);
+  theme = minim.loadFile("MUSIC.mp3");
+  start = minim.loadFile("SUCCESS.wav");
+  gameover = minim.loadFile("FAILURE.wav");
 }
 
 void draw() {

@@ -65,9 +65,19 @@ void game() {
     mode = GAMEOVER;
     win = 2;
   }
+  
+  fill(255);
+  circle(400,35,60);
+  textSize(20);
+  fill(0);
+  text("PAUSE", 400,35);
 }
 
+
 void gameclicks() {
+  if(dist(mouseX, mouseY, 400,35)<30){
+    mode = PAUSE;
+  }
 }
 
 void manageBrick(int i) {
@@ -81,6 +91,8 @@ void manageBrick(int i) {
     vy = (ballY - y[i])/10;
     alive[i] = false;
     score = score+1;
+    start.rewind();
+    start.play();
   }
 }
 
